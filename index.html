@@ -3,220 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Heritage | Ethnic Traditions of Nepal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <title>AURA LUXE | Heritage Bridal & 3D Design Studio</title>
+    
+    <!-- Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@200;400;600;800&family=Playfair+Display:ital,wght@0,500;0,900;1,400&display=swap" rel="stylesheet">
     
     <style>
+        /* 
+        ========================================
+        GLOBAL DESIGN SYSTEM (THE DESIGN BIBLE)
+        ========================================
+        */
         :root {
-            --gold: #C5A059;
-            --nepal-red: #9B1B30;
-            --ebony: #121212;
-            --ivory: #FDFCF8;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --gold-leaf: #D4AF37;
+            --rose-gold: #E0BFB8;
+            --white-gold: #F5F5F5;
+            --nepal-crimson: #9B1B30;
+            --obsidian: #0A0A0A;
+            --pearl: #FFFFFF;
+            --slate: #2D2D2D;
+            --glass: rgba(255, 255, 255, 0.1);
+            --transition-ultra: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+            --shadow-luxe: 0 30px 60px rgba(0,0,0,0.12);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--ebony); line-height: 1.6; }
-        h1, h2, h3, .serif { font-family: 'Cinzel', serif; }
-
-        /* NAVIGATION */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255,255,255,0.95); padding: 20px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-        .logo { font-size: 22px; font-weight: 900; letter-spacing: 2px; }
-        .logo span { color: var(--gold); }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--ebony); font-size: 12px; font-weight: 600; text-transform: uppercase; }
-
-        /* HERO */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; margin-top: 60px;
-        }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-
-        /* ETHNIC FILTERS */
-        .filter-section { padding: 60px 5% 20px; text-align: center; }
-        .filter-container { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
-        .filter-btn {
-            padding: 12px 25px; border: 1px solid #ddd; background: white;
-            cursor: pointer; transition: var(--transition); font-weight: 600; font-size: 13px;
-        }
-        .filter-btn.active { background: var(--nepal-red); color: white; border-color: var(--nepal-red); }
-
-        /* GALLERY */
-        .gallery { padding: 40px 5% 100px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-        .product-card { background: white; border: 1px solid #eee; transition: var(--transition); position: relative; overflow: hidden; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
-        .img-box { height: 400px; overflow: hidden; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .product-card:hover .img-box img { transform: scale(1.1); }
-
-        .info { padding: 25px; text-align: center; }
-        .eth-tag { font-size: 10px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
-        .name { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-        .price { color: var(--nepal-red); font-family: 'Playfair Display', serif; font-weight: 700; }
-
-        .desc-box { 
-            position: absolute; bottom: -100%; left: 0; width: 100%; background: rgba(255,255,255,0.95);
-            padding: 20px; transition: var(--transition); border-top: 2px solid var(--gold); font-size: 13px;
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: var(--pearl); 
+            color: var(--obsidian); 
+            line-height: 1.8;
+            overflow-x: hidden;
         }
-        .product-card:hover .desc-box { bottom: 0; }
 
-        /* FOOTER */
-        footer { background: var(--ebony); color: white; padding: 60px 5%; text-align: center; }
-        .footer-logo { font-size: 24px; margin-bottom: 20px; display: block; }
+        h1, h2, h3, .serif-header { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 4px;
+        }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; }
+        /* 
+        ========================================
+        NAVIGATION: THE GLASS BAR
+        ========================================
+        */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 5000;
+            padding: 30px 5%; display: flex; justify-content: space-between;
+            align-items: center; background: rgba(255,255,255,0.01);
+            backdrop-filter: blur(0px); transition: var(--transition-ultra);
+        }
+
+        nav.sticky {
+            padding: 15px 5%; background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px); border-bottom: 1px solid #eee;
+        }
+
+        .logo { font-size: 26px; font-weight: 900; color: var(--obsidian); }
+        .logo span { color: var(--gold-leaf); }
+
+        .nav-menu { display: flex; gap: 40px; list-style: none; }
+        .nav-menu a { 
+            text-decoration: none; color: var(--obsidian); font-size: 11px; 
+            font-weight: 700; letter-spacing: 2px; position: relative;
+        }
+
+        .nav-menu a::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -8px; left: 0; background: var(--nepal-crimson);
+            transition: var(--transition-ultra);
+        }
+        .nav-menu a:hover::after { width: 100%; }
+
+        /* 
+        ========================================
+        BRIDAL ATELIER (HERO)
+        ========================================
+        */
+        .bridal-hero {
+            height: 100vh; width: 100%; display: flex; align-items: center;
+            background: #000; position: relative; overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.6;
+        }
+
+        .bridal-content {
+            position: relative; z-index: 10; padding: 0 10%; color: white;
+            max-width: 800px;
+        }
+
+        .bridal-content h1 { font-size: 5rem; margin-bottom: 20px; line-height: 1; }
+        .bridal-content p { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; opacity: 0.9; margin-bottom: 40px; }
+
+        .btn-luxe {
+            padding: 20px 50px; background: var(--gold-leaf); color: white;
+            text-decoration: none; font-weight: 800; font-size: 12px;
+            letter-spacing: 3px; display: inline-block; transition: var(--transition-ultra);
+            border: 1px solid var(--gold-leaf);
+        }
+        .btn-luxe:hover { background: transparent; border-color: white; }
+
+        /* 
+        ========================================
+        3D CUSTOM DESIGN LAB
+        ========================================
+        */
+        .design-lab {
+            padding: 120px 5%; background: var(--slate); color: white;
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px;
+            align-items: center;
+        }
+
+        .canvas-container {
+            height: 600px; background: radial-gradient(circle, #444, #111);
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; position: relative;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+        }
+
+        #preview-ring {
+            width: 300px; height: 300px; border: 15px solid var(--gold-leaf);
+            border-radius: 50%; position: relative; transition: var(--transition-ultra);
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+        }
+
+        #preview-gem {
+            position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+            width: 60px; height: 60px; background: #fff; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            transition: var(--transition-ultra);
+        }
+
+        .lab-controls { padding: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .lab-controls h2 { margin-bottom: 30px; font-size: 24px; color: var(--gold-leaf); }
+
+        .control-group { margin-bottom: 30px; }
+        .control-group label { display: block; font-size: 10px; text-transform: uppercase; margin-bottom: 15px; opacity: 0.6; }
+        
+        .option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .opt-btn {
+            padding: 10px; border: 1px solid rgba(255,255,255,0.2); background: none;
+            color: white; cursor: pointer; font-size: 10px; transition: 0.3s;
+        }
+        .opt-btn.active { border-color: var(--gold-leaf); background: var(--gold-leaf); }
+
+        /* 
+        ========================================
+        MODERN BRIDAL GRID (NEPALESE FUSION)
+        ========================================
+        */
+        .section-title { text-align: center; padding: 100px 0 50px; }
+        .section-title h2 { font-size: 40px; }
+        .section-title span { font-family: 'Playfair Display', serif; font-style: italic; text-transform: lowercase; letter-spacing: 0; font-size: 18px; }
+
+        .bridal-grid {
+            padding: 0 5% 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px;
+        }
+
+        .bridal-card { position: relative; overflow: hidden; height: 600px; }
+        .bridal-card img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s; }
+        .bridal-card:hover img { transform: scale(1.1) rotate(2deg); }
+
+        .bridal-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 40px; color: white; opacity: 0; transition: 0.5s;
+        }
+        .bridal-card:hover .bridal-overlay { opacity: 1; }
+
+        /* 
+        ========================================
+        ETHNIC MASTERPIECE SECTION
+        ========================================
+        */
+        .heritage-showcase {
+            background: #fdfaf5; padding: 100px 10%; display: flex; align-items: center; gap: 100px;
+        }
+        .heritage-img { flex: 1; position: relative; }
+        .heritage-img img { width: 100%; border: 20px solid white; box-shadow: var(--shadow-luxe); }
+        .heritage-text { flex: 1; }
+        .heritage-text h3 { color: var(--nepal-crimson); font-size: 32px; margin-bottom: 20px; }
+
+        /* 
+        ========================================
+        FOOTER: THE LEGACY
+        ========================================
+        */
+        footer {
+            background: var(--obsidian); color: white; padding: 100px 5% 50px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 80px; margin-bottom: 80px;
+        }
+        .footer-col h4 { margin-bottom: 30px; font-size: 14px; color: var(--gold-leaf); }
+        .footer-col p { opacity: 0.6; font-size: 13px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 15px; font-size: 13px; opacity: 0.6; transition: 0.3s; cursor: pointer; }
+        .footer-col ul li:hover { opacity: 1; color: var(--gold-leaf); padding-left: 10px; }
+
+        .newsletter input {
+            width: 100%; padding: 15px; background: #1a1a1a; border: 1px solid #333;
+            color: white; margin-bottom: 20px;
+        }
+
+        /* 
+        ========================================
+        ANIMATIONS
+        ========================================
+        */
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        @media (max-width: 1024px) {
+            .bridal-grid { grid-template-columns: repeat(2, 1fr); }
+            .design-lab { grid-template-columns: 1fr; }
+            .heritage-showcase { flex-direction: column; gap: 50px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">AURA<span>HERITAGE</span></div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Ethnic Collection</a></li>
-            <li><a href="#">Modern Fusion</a></li>
-            <li><a href="#">About Nepal</a></li>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="logo">AURA<span>LUXE</span></div>
+        <ul class="nav-menu">
+            <li><a href="#bridal">Bridal Atelier</a></li>
+            <li><a href="#lab">Design Lab</a></li>
+            <li><a href="#heritage">Heritage</a></li>
+            <li><a href="#modern">Modern</a></li>
+            <li><a href="#men">Men</a></li>
         </ul>
-        <div>🛒</div>
+        <div style="font-size: 14px; font-weight: 700; cursor: pointer;">MY ATELIER (0)</div>
     </nav>
 
-    <section class="hero">
-        <h1 class="serif">Ethnic Grandeur</h1>
-        <p>A celebration of Nepal's diverse cultural identities</p>
-    </section>
-
-    <section class="filter-section">
-        <h2>The Heritage Catalog</h2>
-        <div class="filter-container">
-            <button class="filter-btn active" onclick="filterData('All', this)">All Tradition</button>
-            <button class="filter-btn" onclick="filterData('Newar', this)">Newar</button>
-            <button class="filter-btn" onclick="filterData('Magar', this)">Magar</button>
-            <button class="filter-btn" onclick="filterData('Gurung', this)">Gurung</button>
-            <button class="filter-btn" onclick="filterData('Chhetri', this)">Chhetri/Bahun</button>
+    <!-- BRIDAL HERO -->
+    <section class="bridal-hero" id="bridal">
+        <!-- Using a high-quality placeholder image that feels like a cinematic video frame -->
+        <img src="https://images.unsplash.com/photo-1594434297298-638069f99587?q=80&w=2000&auto=format&fit=crop" class="hero-video-bg" alt="Bridal">
+        <div class="bridal-content">
+            <span style="letter-spacing: 5px; font-size: 12px; font-weight: 700; color: var(--gold-leaf);">ESTABLISHED 1994 | KATHMANDU</span>
+            <h1>Modern <br>Matrimony</h1>
+            <p>Where the weight of tradition meets the lightness of a modern dream.</p>
+            <a href="#collection" class="btn-luxe">Explore Bridal Sets</a>
         </div>
     </section>
 
-    <div class="gallery" id="gallery">
-        <!-- JS Injection -->
+    <!-- THE 3D DESIGN STUDIO -->
+    <section class="design-lab" id="lab">
+        <div class="canvas-container">
+            <div id="preview-ring">
+                <div id="preview-gem"></div>
+            </div>
+            <div style="position: absolute; bottom: 30px; font-size: 10px; letter-spacing: 2px; opacity: 0.5;">
+                LIVE PREVIEW: REAL-TIME 3D RENDERING SIMULATION
+            </div>
+        </div>
+
+        <div class="lab-controls">
+            <span class="serif-header" style="color: var(--gold-leaf); font-size: 12px;">The Bespoke Experience</span>
+            <h2>Create Your Legacy</h2>
+            
+            <div class="control-group">
+                <label>Select Metal Essence</label>
+                <div class="option-grid">
+                    <button class="opt-btn active" onclick="setMetal('var(--gold-leaf)', this)">24K Gold</button>
+                    <button class="opt-btn" onclick="setMetal('var(--rose-gold)', this)">Rose Gold</button>
+                    <button class="opt-btn" onclick="setMetal('var(--white-gold)', this)">Platinum</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Select Center Stone</label>
+                <div class="option-grid">
+                    <button class="opt-btn active" onclick="setGem('#ffffff', this)">Diamond</button>
+                    <button class="opt-btn" onclick="setGem('#136a8a', this)">Sapphire</button>
+                    <button class="opt-btn" onclick="setGem('#e52d27', this)">Ruby</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Ring Thickness</label>
+                <input type="range" min="5" max="30" value="15" style="width: 100%; accent-color: var(--gold-leaf);" oninput="setThickness(this.value)">
+            </div>
+
+            <button class="btn-luxe" style="width: 100%; text-align: center; margin-top: 20px;">Inquire for Production</button>
+        </div>
+    </section>
+
+    <!-- MODERN BRIDAL GRID -->
+    <div class="section-title" id="collection">
+        <h2>The Bridal Atelier</h2>
+        <span>fusion of high-fashion and himalayan soul</span>
     </div>
 
+    <section class="bridal-grid">
+        <div class="bridal-card">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800" alt="Set 1">
+            <div class="bridal-overlay">
+                <h3 class="serif-header">The Diamond Tilhari</h3>
+                <p style="font-size: 12px; margin: 15px 0;">Traditional 24K gold cylinder reimagined with hand-set pavé diamonds on emerald silk thread.</p>
+                <span class="serif-header" style="color: var(--gold-leaf);">Rs. 5,25,000</span>
+            </div>
+        </div>
+
+        <div class="bridal-card">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800" alt="Set 2">
+            <div class="bridal-overlay">
+                <h3 class="serif-header">Modern Newar Empress</h3>
+                <p style="font-size: 12px; margin: 15px 0;">A Tayo choker crafted in 18K White Gold with intricate laser-cut filigree work.</p>
+                <span class="serif-header" style="color: var(--gold-leaf);">Rs. 8,40,000</span>
+            </div>
+        </div>
+
+        <div class="bridal-card">
+            <img src="https://images.unsplash.com/photo-1610444317130-97734f27357c?q=80&w=800" alt="Set 3">
+            <div class="bridal-overlay">
+                <h3 class="serif-header">Magar Fusion Gold</h3>
+                <p style="font-size: 12px; margin: 15px 0;">Heritage Kantha beads with a modern geometric twist, matte finish gold and ruby spacers.</p>
+                <span class="serif-header" style="color: var(--gold-leaf);">Rs. 3,10,000</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERITAGE SPOTLIGHT -->
+    <section class="heritage-showcase" id="heritage">
+        <div class="heritage-img">
+            <img src="https://images.unsplash.com/photo-1573408302355-4e0b7cb39822?q=80&w=1000" alt="Heritage">
+        </div>
+        <div class="heritage-text">
+            <span class="serif-header" style="font-size: 12px; color: #888;">The Master Craftsmen</span>
+            <h3>Preserving The Lost Wax Legacy</h3>
+            <p>For seven generations, our family has practiced the "Lost Wax" casting method in the heart of Patan. While the world moves toward mass production, every Aura Luxe piece begins as a hand-carved wax sculpture.</p>
+            <p style="margin-top: 20px;">Whether it's a <b>Gurung Dhungri</b> or a <b>Chhetri Bulaki</b>, we honor the specific cultural codes of each community while ensuring they fit seamlessly into a modern lifestyle.</p>
+            <div style="margin-top: 40px; display: flex; gap: 30px;">
+                <div style="text-align: center;">
+                    <h4 class="serif-header">100%</h4>
+                    <p style="font-size: 10px;">Ethical Gold</p>
+                </div>
+                <div style="text-align: center;">
+                    <h4 class="serif-header">250+</h4>
+                    <p style="font-size: 10px;">Artisans</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <span class="footer-logo serif">AURA HERITAGE</span>
-        <p>Preserving the craftsmanship of the Himalayas for the world.</p>
-        <p style="margin-top: 20px; font-size: 12px; opacity: 0.6;">&copy; 2026 Aura Jewels Nepal. All Rights Reserved.</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 30px;">AURA<span>LUXE</span></div>
+                <p>Defining the standard of Himalayan luxury since 1994. From the slopes of Everest to the galleries of Paris.</p>
+                <div style="margin-top: 20px; display: flex; gap: 15px;">
+                    <!-- Social icons placeholders -->
+                    <span style="font-size: 18px;">📸</span>
+                    <span style="font-size: 18px;">📘</span>
+                    <span style="font-size: 18px;">🐦</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Collections</h4>
+                <ul>
+                    <li>Ethnic Heritage</li>
+                    <li>Modern Bridal</li>
+                    <li>Men's Industrial</li>
+                    <li>Miniature (Girls)</li>
+                    <li>Bespoke 3D Lab</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li>Gold Exchange</li>
+                    <li>Diamond Certification</li>
+                    <li>Custom Engraving</li>
+                    <li>Worldwide Shipping</li>
+                    <li>Repair & Polish</li>
+                </ul>
+            </div>
+            <div class="footer-col newsletter">
+                <h4>Newsletter</h4>
+                <p style="margin-bottom: 20px;">Receive early access to our limited heritage drops.</p>
+                <input type="email" placeholder="Email Address">
+                <button class="btn-luxe" style="width: 100%; padding: 15px;">Subscribe</button>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #222; padding-top: 40px; text-align: center; font-size: 11px; opacity: 0.5; letter-spacing: 2px;">
+            &copy; 2026 AURA LUXE NEPAL. HANDCRAFTED WITH PRECISION.
+        </div>
     </footer>
 
+    <!-- INTERACTIVE ENGINE -->
     <script>
-        const products = [
-            // NEWAR
-            {
-                name: "Intricate Tayo Necklace",
-                eth: "Newar",
-                price: "Rs. 4,50,000",
-                img: "https://images.unsplash.com/photo-1629241064051-789094770265?q=80&w=600&auto=format&fit=crop",
-                desc: "The Tayo is a masterpiece of Newari craftsmanship, featuring a hollow gold pendant shaped like a seed, representing fertility and wealth."
-            },
-            {
-                name: "Makansi Earrings",
-                eth: "Newar",
-                price: "Rs. 75,000",
-                img: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=600&auto=format&fit=crop",
-                desc: "Distinctive heavy gold earrings traditionally worn by Newari women, known for their unique hanging design."
-            },
+        // 1. Navigation Sticky Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 100) nav.classList.add('sticky');
+            else nav.classList.remove('sticky');
+        });
+
+        // 2. 3D Lab Logic
+        const ring = document.getElementById('preview-ring');
+        const gem = document.getElementById('preview-gem');
+
+        function setMetal(color, btn) {
+            // Update Visuals
+            ring.style.borderColor = color;
+            ring.style.filter = `drop-shadow(0 0 20px ${color})`;
             
-            // MAGAR
-            {
-                name: "Golden Kantha Necklace",
-                eth: "Magar",
-                price: "Rs. 1,85,000",
-                img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=600&auto=format&fit=crop",
-                desc: "A stunning Magar necklace made of large gold beads separated by red felt (fuchhi), signifying bravery and tradition."
-            },
-            {
-                name: "Magar Marwari Earrings",
-                eth: "Magar",
-                price: "Rs. 55,000",
-                img: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=600&auto=format&fit=crop",
-                desc: "Large gold hoop earrings, a staple of Magar female identity, reflecting status and heritage."
-            },
-
-            // GURUNG
-            {
-                name: "Dhungri Nose Stud",
-                eth: "Gurung",
-                price: "Rs. 32,000",
-                img: "https://images.unsplash.com/photo-1602751584412-70120c415d4d?q=80&w=600&auto=format&fit=crop",
-                desc: "The Gurung Dhungri is a large, flat gold nose stud, often intricately carved with floral patterns."
-            },
-            {
-                name: "Gurung Sirbandi",
-                eth: "Gurung",
-                price: "Rs. 2,90,000",
-                img: "https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6a?q=80&w=600&auto=format&fit=crop",
-                desc: "A magnificent headpiece worn across the forehead, symbolizing the brilliance of the sun."
-            },
-
-            // CHHETRI
-            {
-                name: "Traditional Tilhari",
-                eth: "Chhetri",
-                price: "Rs. 1,60,000",
-                img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=600&auto=format&fit=crop",
-                desc: "The sacred gold cylinder (Tilhari) strung on green beads (Potey), the ultimate symbol of marriage for Chhetri and Bahun women."
-            },
-            {
-                name: "Royal Bulaki",
-                eth: "Chhetri",
-                price: "Rs. 25,000",
-                img: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=600&auto=format&fit=crop",
-                desc: "An ornate gold nose ring that hangs over the upper lip, reflecting the traditional aesthetic of the mid-hills."
-            }
-        ];
-
-        function render(data) {
-            const container = document.getElementById('gallery');
-            container.innerHTML = data.map(p => `
-                <div class="product-card">
-                    <div class="img-box">
-                        <img src="${p.img}" alt="${p.name}">
-                    </div>
-                    <div class="info">
-                        <span class="eth-tag">${p.eth} Heritage</span>
-                        <h3 class="name">${p.name}</h3>
-                        <p class="price">${p.price}</p>
-                    </div>
-                    <div class="desc-box">
-                        <strong>Cultural Significance:</strong><br>
-                        ${p.desc}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function filterData(eth, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            // Update UI
+            document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            if(eth === 'All') render(products);
-            else render(products.filter(p => p.eth === eth));
         }
 
-        // Initialize
-        render(products);
+        function setGem(color, btn) {
+            // Update Visuals
+            gem.style.backgroundColor = color;
+            gem.style.boxShadow = `0 0 15px ${color}`;
+            
+            // Update UI
+            btn.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function setThickness(val) {
+            ring.style.borderWidth = val + 'px';
+        }
+
+        // 3. Smooth Intersection Observer for Animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bridal-card, .heritage-text').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 1s ease-out';
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
